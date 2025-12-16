@@ -1,30 +1,27 @@
-// Simpel tab-funktion til MAD / DRIKKE
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".menu-tab");
-  const panels = document.querySelectorAll(".menu-content");
-  const page = document.querySelector(".menu-page");
+// Henter alle tabs (knapper)
+const tabs = document.querySelectorAll(".tab");
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const targetId = tab.dataset.target;
+// Henter alle indholdspaneler
+const panels = document.querySelectorAll(".tab-content");
 
-      // Skift aktiv knap
-      tabs.forEach((t) => {
-        const isActive = t === tab;
-        t.classList.toggle("is-active", isActive);
-        t.setAttribute("aria-selected", isActive ? "true" : "false");
-      });
+// Gennemgår alle tabs
+tabs.forEach(tab => {
 
-      // Vis/skjul indhold
-      panels.forEach((panel) => {
-        panel.classList.toggle("is-visible", panel.id === targetId);
-      });
+  // Lytter efter klik på en tab
+  tab.addEventListener("click", () => {
 
-      // Tilføj klasse på siden så vi kan style krummelurer forskelligt
-      if (page) {
-        page.classList.toggle("drikke-active", targetId === "drikke");
-        page.classList.toggle("mad-active", targetId === "mad");
-      }
+    // Finder hvilket panel tab'en peger på
+    const target = tab.dataset.target;
+
+    // Fjerner aktiv tilstand fra alle tabs
+    tabs.forEach(t => t.classList.remove("is-active"));
+
+    // Viser kun det panel, der matcher data-target
+    panels.forEach(panel => {
+      panel.classList.toggle("is-visible", panel.id === target);
     });
+
+    // Markerer den klikkede tab som aktiv
+    tab.classList.add("is-active");
   });
 });
