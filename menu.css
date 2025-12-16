@@ -1,0 +1,232 @@
+/* =========================================================
+   GENERELT
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f3dfc5;                 /* Beige baggrund */
+  font-family: "Gotham Light", "Gotham";
+  color: #341510;                      /* Mørk brun tekst */
+}
+
+/* =========================================================
+   SIDEOPBYGNING
+   ========================================================= */
+
+.menu-page {
+  position: relative;
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 1.5rem 120px;             /* Ekstra luft i bunden til krummelure */
+}
+
+/* =========================================================
+   OVERSKRIFT
+   ========================================================= */
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.menu-heading {
+  font-family: "Gotham", "Gotham Bold", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  color: #d96207;                      /* Orange accent */
+}
+
+/* =========================================================
+   TABS (MAD / DRIKKE)
+   ========================================================= */
+
+.menu-tabs {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.menu-tab {
+  padding: 10px 28px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 1px solid #d96207;
+  background: transparent;
+  color: #d96207;
+  cursor: pointer;
+
+  font-family: "Gotham", "Gotham Bold", system-ui, sans-serif;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.menu-tab.is-active {
+  background: #d96207;
+  color: #f3dfc5;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-tab:focus-visible {
+  outline: 2px solid #d96207;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   INDHOLD (MAD / DRIKKE)
+   ========================================================= */
+
+.menu-content {
+  display: none;
+}
+
+.menu-content.is-visible {
+  display: block;
+}
+
+/* =========================================================
+   KOLONNER
+   ========================================================= */
+
+.menu-columns {
+  display: flex;
+  gap: 90px;                           /* Afstand mellem kolonner */
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 170px;                  /* Luft fra overskrift og top-ornament */
+}
+
+.menu-section {
+  flex: 1;
+  max-width: 340px;
+}
+
+/* =========================================================
+   SEKTIONSTITLER
+   ========================================================= */
+
+.menu-section-title {
+  font-family: "Gotham", "Gotham Bold", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+.menu-section-title--kage {
+  margin-top: 40px;
+}
+
+/* =========================================================
+   MENU-ITEMS
+   ========================================================= */
+
+.menu-item {
+  margin-bottom: 20px;
+}
+
+.menu-item h3 {
+  margin: 0 0 3px;
+  font-family: "Gotham", "Gotham Bold", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #341510;
+}
+
+.menu-item p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "Gotham", system-ui, sans-serif;
+  color: #341510;
+}
+
+.price {
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   NOTER
+   ========================================================= */
+
+.menu-subnote {
+  margin-top: 6px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.menu-note {
+  margin-top: 60px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* =========================================================
+   KRUMMELURER / ORNAMENTIK
+   ========================================================= */
+
+.menu-ornament {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Top-ornament */
+.menu-ornament--top {
+  top: 155px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Bund-ornament */
+.menu-ornament--bottom {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* =========================================================
+   RESPONSIVT
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .menu-columns {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 150px;
+    align-items: center;
+  }
+
+  .menu-section {
+    max-width: 400px;
+  }
+
+  .menu-ornament--top {
+    top: 120px;
+    width: 90%;
+  }
+
+  .menu-ornament--bottom {
+    bottom: 20px;
+  }
+}
